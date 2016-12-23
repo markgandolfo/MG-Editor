@@ -1,1 +1,14 @@
-body { background: pink !important; }
+nav {
+  width: 100%;
+  padding: 5px;
+  box-shadow: 0 1px 10px rgba(0,0,0,.1);
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  background: #ccc;
+}
+
+nav a {
+  color: #333333;
+  text-decoration: none;
+}
