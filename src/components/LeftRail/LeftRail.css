@@ -1,0 +1,27 @@
+.left-rail {
+  background-color: #fbfbfb;
+  text-align: left;
+  flex-grow: 0;
+  flex-basis:200px;
+  padding: 10px;
+  order: 1;
+  border: 1px solid #efefef;
+}
+
+.left-rail a {
+  color: #464646;
+}
+
+.left-rail ul {
+  list-style: none;
+  margin: 0;
+  padding: 5px;
+}
+
+.left-rail li {
+  padding: 10px 0;
+  margin-bottom: 10px;
+  display: block;
+  border-bottom: 1px solid #efefef;
+  background: #fefefe;
+}

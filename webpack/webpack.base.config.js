@@ -25,6 +25,7 @@ module.exports = new WebpackConfig().merge({
   resolve: {
     root: path.resolve('./src'),
     alias: {
+      'vue$': 'vue/dist/vue.common.js'
     },
     extensions: ['', '.js', '.css']
   },

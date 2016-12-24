@@ -1,0 +1,13 @@
+.main-content {
+  background: var(--main-background);
+  font-family: var(--technical-font);
+  color: #4e4e4e;
+  border: 1px solid #efefef;
+  text-align: left;
+  flex-grow: 1;
+  color: black;
+  padding: 10px;
+  order: 3;
+
+  font-size: .8rem;
+}

@@ -1,0 +1,39 @@
+.right-rail {
+  background: var(--main-background);
+  font-family: var(--technical-font);
+  border: 1px solid #efefef;
+  font-size: .8rem;
+
+  display: flex;
+  flex-grow: 0;
+  flex-basis:40%;
+  order: 3;
+
+  padding: 10px;
+}
+
+.right-rail > div {
+  width: 100%;
+}
+
+.right-rail h1, .right-rail h2, .right-rail h3 {
+    margin: 0;
+}
+
+.right-rail h1 {
+  font-size: 1.3rem;
+}
+
+.right-rail h2 {
+  font-size: 1.1rem;
+}
+
+.right-rail code {
+  background: #000000;
+  color: #ffffff;
+}
+
+.right-rail pre code {
+  display: block;
+  padding: 10px;
+}

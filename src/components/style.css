@@ -1,1 +1,13 @@
+@import '../lib/variables.css';
 @import './Navbar/Navbar';
+@import './LeftRail/LeftRail';
+@import './RightRail/RightRail';
+@import './MainContent/MainContent';
+
+main {
+  display: flex;
+  overflow: hidden;
+  color: #424242;
+  border: 1px solid #333;
+  align-items: center;
+}

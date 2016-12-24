@@ -7,13 +7,15 @@
     <meta name="description" content="Next Gen Editor" />
     <meta name="format-detection" content="telephone=no" />
 
-    <title>Content Editable</title>
+    <title>MG Editor</title>
   </head>
 
   <body class="type-body">
     <% include components/Navbar/Navbar %>
 
-    <main role="main">
+    <main role="main" id="main-content">
+      <% include components/LeftRail/LeftRail %>
+      <% include components/MainContent/MainContent %>
       <% include components/RightRail/RightRail %>
     </main>
   </body>
