@@ -66,7 +66,7 @@ const vm = new Vue({ // eslint-disable-line no-new
 
     loadNote: function (e) {
       const noteId = e.target.getAttribute('data-note-id');
-      this.note = _.find(this.notesList, { id: parseInt(noteId) });
+      this.note = _.find(this.notesList, { id: parseInt(noteId, 10) });
     }
   }
 });
