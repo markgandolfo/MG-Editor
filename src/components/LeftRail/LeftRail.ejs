@@ -3,7 +3,7 @@
   <ul id="note-list">
     <li v-for="note in notesList">
       <a href="#" :data-note-id="note.id" v-on:click="loadNote">
-        {{ note.title }}
+        {{ note.id }}
       </a>
     </li>
    </ul>

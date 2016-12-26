@@ -3,18 +3,23 @@ import _ from 'lodash';
 const Dexie = require('dexie');
 
 export default class Note {
-  constructor({ id = null, date = Date.now(), title = '', description = '' }) {
+  constructor({ id = null, date = Date.now(), description = '' }) {
     this.id = id;
     this.date = date;
-    this.title = title;
     this.description = description;
 
     this.db = new Dexie('mgWriterNoteApp');
     this.db.version(1).stores({
-      notes: '++id,date,title,description'
+      notes: '++id,title,date,description'
+    });
+    this.db.version(2).stores({
+      notes: '++id,date,description'
+    }).upgrade((trans) => {
+      trans.notes.toCollection().modify((note) => {
+        delete note.title; // eslint-disable-line no-param-reassign
+      });
     });
   }
-
 
   static get(id) {
     const that = this;
@@ -26,8 +31,8 @@ export default class Note {
 
   static all(callback) {
     this.db = new Dexie('mgWriterNoteApp');
-    this.db.version(1).stores({
-      notes: '++id,date,title,description'
+    this.db.version(2).stores({
+      notes: '++id,date,description'
     });
     const that = this;
 
@@ -38,7 +43,6 @@ export default class Note {
         return new Note(
           {
             id: note.id,
-            title: note.title,
             description: note.description,
             date: note.date
           });
@@ -81,9 +85,7 @@ export default class Note {
   asJson() {
     return {
       date: this.date,
-      title: this.title,
       description: this.description
     };
   }
 }
-

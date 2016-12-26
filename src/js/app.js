@@ -49,11 +49,10 @@ const vm = new Vue({ // eslint-disable-line no-new
       this.input = e.target.value;
 
       if (this.note === null) {
-        this.note = new Note({ title: this.input.split('\n')[0], description: this.input });
+        this.note = new Note({ description: this.input });
         this.note = this.note.save();
       } else {
         this.note.description = this.input;
-        this.note.title = this.input.split('\n')[0];
         this.note.save();
       }
 
@@ -61,7 +60,7 @@ const vm = new Vue({ // eslint-disable-line no-new
     }, 300),
 
     addNewNote: function () {
-      this.note = new Note({ title: '', description: '' });
+      this.note = new Note({ description: '' });
     },
 
     loadNote: function (e) {
