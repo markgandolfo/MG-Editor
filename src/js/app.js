@@ -24,11 +24,16 @@ const vm = new Vue({ // eslint-disable-line no-new
     }
   },
 
+  watch: {
+    note: function (note) {
+      this.input = note.description;
+    }
+  },
+
   methods: {
     loadFirstNote: function () {
       if (this.notesList.length > 0) {
         this.note = this.notesList[0];
-        this.input = this.notesList[0].description;
       }
     },
 
@@ -56,12 +61,12 @@ const vm = new Vue({ // eslint-disable-line no-new
     }, 300),
 
     addNewNote: function () {
-      this.input = '';
       this.note = new Note({ title: '', description: '' });
     },
 
     loadNote: function (e) {
-      console.log(e);
+      const noteId = e.target.getAttribute('data-note-id');
+      this.note = _.find(this.notesList, { id: parseInt(noteId) });
     }
   }
 });
