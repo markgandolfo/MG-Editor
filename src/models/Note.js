@@ -1,3 +1,5 @@
+import _ from 'lodash';
+
 const Dexie = require('dexie');
 
 export default class Note {
@@ -13,6 +15,7 @@ export default class Note {
     });
   }
 
+
   static get(id) {
     const that = this;
 
@@ -21,16 +24,31 @@ export default class Note {
     });
   }
 
-  static all() {
+  static all(callback) {
+    this.db = new Dexie('mgWriterNoteApp');
+    this.db.version(1).stores({
+      notes: '++id,date,title,description'
+    });
     const that = this;
 
     Dexie.spawn(function* () {
-      yield that.db.notes.toArray();
+      let notes = yield that.db.notes.toArray();
+
+      notes = _.map(notes, (note) => { // eslint-disable-line arrow-body-style
+        return new Note(
+          {
+            id: note.id,
+            title: note.title,
+            description: note.description,
+            date: note.date
+          });
+      });
+
+      return callback(notes);
     });
   }
 
   save() {
-    console.log(this.id);
     if (this.id === null) {
       this._create();
     } else {
@@ -46,7 +64,7 @@ export default class Note {
     Dexie.spawn(function* () {
       that.id = yield that.db.notes.put(that.asJson());
     }).catch((err) => {
-      console.err(`eek create went wrong: ${err}`);
+      console.error(`eek create went wrong: ${err}`); // eslint-disable-line no-console
     });
   }
 
@@ -56,12 +74,11 @@ export default class Note {
     Dexie.spawn(function* () {
       yield that.db.notes.update(that.id, that.asJson());
     }).catch((err) => {
-      console.err(`eek update went wrong: ${err}`);
+      console.error(`eek update went wrong: ${err}`); // eslint-disable-line no-console
     });
   }
 
   asJson() {
-    console.log('asJson');
     return {
       date: this.date,
       title: this.title,

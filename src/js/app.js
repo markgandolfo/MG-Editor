@@ -10,11 +10,12 @@ const autoResizer = new AutoResizer('auto-heighter');
 autoResizer.resize();
 autoResizer.autoResizeOnWindowResize();
 
-new Vue({ // eslint-disable-line no-new
+const vm = new Vue({ // eslint-disable-line no-new
   el: '#main-content',
   data: {
-    input: '# Welcome to MG Writer\nA simple note taking app that stores your notes within local storage.\n\n## Future Plans\n1. Export to PDF\n1. Export to TXT\n1. Sync to Dropbox/Drive if possible\n1. Pretty Print\n1. Resizable & Collapsable panes\n\n## Tech\nWe use webpack, vue.js and marked. View the readme on [github](https://github.com/markgandolfo/MG-Editor) for more info',
-    note: null
+    input: '',
+    note: null,
+    notesList: [{ }]
   },
 
   computed: {
@@ -24,6 +25,21 @@ new Vue({ // eslint-disable-line no-new
   },
 
   methods: {
+    loadFirstNote: function () {
+      if (this.notesList.length > 0) {
+        this.note = this.notesList[0];
+        this.input = this.notesList[0].description;
+      }
+    },
+
+    updateNoteList: function (callback) {
+      const that = this;
+      Note.all((notes) => {
+        that.notesList = notes;
+        return callback();
+      });
+    },
+
     update: _.debounce(function (e) {
       this.input = e.target.value;
 
@@ -35,6 +51,22 @@ new Vue({ // eslint-disable-line no-new
         this.note.title = this.input.split('\n')[0];
         this.note.save();
       }
-    }, 300)
+
+      this.updateNoteList();
+    }, 300),
+
+    addNewNote: function () {
+      this.input = '';
+      this.note = new Note({ title: '', description: '' });
+    },
+
+    loadNote: function (e) {
+      console.log(e);
+    }
   }
 });
+
+vm.updateNoteList(() => {
+  vm.loadFirstNote();
+});
+
