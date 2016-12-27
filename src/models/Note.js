@@ -1,8 +1,7 @@
 import _ from 'lodash';
-
-const Dexie = require('dexie');
-const removeMarkdown = require('remove-markdown');
-const moment = require('moment');
+import removeMarkdown from 'remove-markdown';
+import Dexie from 'dexie';
+import moment from 'moment';
 
 const db = new Dexie('mgWriterNoteApp');
 

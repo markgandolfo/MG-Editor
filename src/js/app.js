@@ -2,9 +2,8 @@ import 'components/style.css';
 import _ from 'lodash';
 import AutoResizer from 'js/AutoResizer';
 import Note from 'models/Note';
-
-const Vue = require('vue');
-const marked = require('marked');
+import Vue from 'vue';
+import marked from 'marked';
 
 const autoResizer = new AutoResizer('auto-heighter');
 autoResizer.resize();
