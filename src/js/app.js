@@ -13,13 +13,26 @@ autoResizer.autoResizeOnWindowResize();
 Vue.component('note-item', {
   template: `
     <a href="#" v-on:click="openNote">
-      <li>
+      <li v-bind:class="{ active: isActive }">
         <div class='date'>{{ note.prettyDate() }}</div>
         <span>{{ note.title() }}</span>
       </li>
     </a>
   `,
+
   props: ['note'],
+
+  data: function () {
+    return {
+      isActive: false
+    };
+  },
+
+  computed: {
+    isActive: function () {
+      return this.note.id === this.$parent.note.id;
+    }
+  },
 
   methods: {
     openNote: function () {

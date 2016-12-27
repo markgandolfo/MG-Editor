@@ -17,11 +17,11 @@
 }
 
 .left-rail div.date {
-  color: #9a9a9a;
+  color: #5b5b5b;
 }
 
 .left-rail a {
-  color: #464646;
+  color: #5b5b5b;
   text-decoration: none;
   font-size: .8rem;
 }
@@ -37,4 +37,8 @@
   margin-bottom: 10px;
   display: block;
   border-bottom: 1px solid #efefef;
+}
+
+.left-rail li.active {
+  background: rgba(96, 255, 82, 0.32);
 }
