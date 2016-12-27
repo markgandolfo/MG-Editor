@@ -87,11 +87,4 @@ export default class Note {
       console.error(`eek update went wrong: ${err}`); // eslint-disable-line no-console
     });
   }
-
-  // asJson() {
-  //   return {
-  //     date: this.date,
-  //     description: this.description
-  //   };
-  // }
 }
