@@ -1,6 +1,7 @@
 import _ from 'lodash';
 
 const Dexie = require('dexie');
+const removeMarkdown = require('remove-markdown');
 
 export default class Note {
   constructor({ id = null, date = Date.now(), description = '' }) {
@@ -50,6 +51,10 @@ export default class Note {
 
       return callback(notes);
     });
+  }
+
+  title() {
+    return removeMarkdown(this.description).substring(0, 20);
   }
 
   save() {

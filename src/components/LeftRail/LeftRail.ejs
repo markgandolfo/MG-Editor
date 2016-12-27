@@ -1,10 +1,12 @@
 <div class="left-rail auto-heighter">
-  <button v-on:click="addNewNote">New Note</button>
-  <ul id="note-list">
-    <li v-for="note in notesList">
-      <a href="#" :data-note-id="note.id" v-on:click="loadNote">
-        {{ note.id }}
-      </a>
-    </li>
-   </ul>
+  <a href="#" class="new-note" v-on:click="addNewNote">New Note</a>
+
+  <ul class="list-group">
+    <li
+      is="note-item"
+      v-for="note in notesList"
+      :key="note.id"
+      :note="note"
+    ></li>
+  </ul>
 </div>

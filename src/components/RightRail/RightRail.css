@@ -16,6 +16,10 @@
   width: 100%;
 }
 
+.right-rail p:first-child {
+  margin-top: 0px;
+}
+
 .right-rail h1, .right-rail h2, .right-rail h3 {
     margin: 0;
 }
