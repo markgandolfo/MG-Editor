@@ -4,42 +4,36 @@ const Dexie = require('dexie');
 const removeMarkdown = require('remove-markdown');
 const moment = require('moment');
 
+const db = new Dexie('mgWriterNoteApp');
+
+db.version(1).stores({
+  notes: '++id,title,date,description'
+});
+
+db.version(2).stores({
+  notes: '++id,date,description'
+}).upgrade((trans) => {
+  trans.notes.toCollection().modify((note) => {
+    delete note.title; // eslint-disable-line no-param-reassign
+  });
+});
+
 export default class Note {
   constructor({ id = null, date = Date.now(), description = '' }) {
     this.id = id;
     this.date = date;
     this.description = description;
-
-    this.db = new Dexie('mgWriterNoteApp');
-    this.db.version(1).stores({
-      notes: '++id,title,date,description'
-    });
-    this.db.version(2).stores({
-      notes: '++id,date,description'
-    }).upgrade((trans) => {
-      trans.notes.toCollection().modify((note) => {
-        delete note.title; // eslint-disable-line no-param-reassign
-      });
-    });
   }
 
   static get(id) {
-    const that = this;
-
     Dexie.spawn(function* () {
-      yield that.db.notes.where('id').eq(id).toArray();
+      yield db.notes.where('id').eq(id).toArray();
     });
   }
 
   static all(callback) {
-    this.db = new Dexie('mgWriterNoteApp');
-    this.db.version(2).stores({
-      notes: '++id,date,description'
-    });
-    const that = this;
-
     Dexie.spawn(function* () {
-      let notes = yield that.db.notes.toArray();
+      let notes = yield db.notes.toArray();
 
       notes = _.map(notes, (note) => { // eslint-disable-line arrow-body-style
         return new Note(
@@ -78,7 +72,7 @@ export default class Note {
     const that = this;
 
     Dexie.spawn(function* () {
-      that.id = yield that.db.notes.put(that.asJson());
+      that.id = yield db.notes.put(that);
     }).catch((err) => {
       console.error(`eek create went wrong: ${err}`); // eslint-disable-line no-console
     });
@@ -88,16 +82,16 @@ export default class Note {
     const that = this;
 
     Dexie.spawn(function* () {
-      yield that.db.notes.update(that.id, that.asJson());
+      yield db.notes.update(that.id, that);
     }).catch((err) => {
       console.error(`eek update went wrong: ${err}`); // eslint-disable-line no-console
     });
   }
 
-  asJson() {
-    return {
-      date: this.date,
-      description: this.description
-    };
-  }
+  // asJson() {
+  //   return {
+  //     date: this.date,
+  //     description: this.description
+  //   };
+  // }
 }

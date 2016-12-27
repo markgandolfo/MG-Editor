@@ -78,7 +78,10 @@ new Vue({ // eslint-disable-line no-new
       Note.all((notes) => {
         that.notesList = notes;
 
-        return callback();
+        if (callback !== undefined) {
+          return callback();
+        }
+        return null;
       });
     },
 
