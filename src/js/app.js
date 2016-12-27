@@ -11,7 +11,13 @@ autoResizer.resize();
 autoResizer.autoResizeOnWindowResize();
 
 Vue.component('note-item', {
-  template: '<a href="#" v-on:click="openNote"><li>{{ note.title() }}</li></a>',
+  template: `
+    <a href="#" v-on:click="openNote">
+      <li>
+        {{ note.title() }}
+      </li>
+    </a>
+  `,
   props: ['note'],
 
   methods: {
