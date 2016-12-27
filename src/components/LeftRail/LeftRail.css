@@ -16,6 +16,10 @@
   display: block;
 }
 
+.left-rail div.date {
+  color: #9a9a9a;
+}
+
 .left-rail a {
   color: #464646;
   text-decoration: none;

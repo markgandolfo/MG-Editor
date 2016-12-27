@@ -46,6 +46,7 @@
     "dexie": "^1.5.1",
     "lodash": "^4.17.2",
     "marked": "^0.3.6",
+    "moment": "^2.17.1",
     "normalize.css": "^5.0.0",
     "remove-markdown": "^0.1.0",
     "vue": "^2.1.6"

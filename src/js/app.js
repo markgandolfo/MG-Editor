@@ -14,7 +14,8 @@ Vue.component('note-item', {
   template: `
     <a href="#" v-on:click="openNote">
       <li>
-        {{ note.title() }}
+        <div class='date'>{{ note.prettyDate() }}</div>
+        <span>{{ note.title() }}</span>
       </li>
     </a>
   `,

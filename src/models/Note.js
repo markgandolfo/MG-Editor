@@ -2,6 +2,7 @@ import _ from 'lodash';
 
 const Dexie = require('dexie');
 const removeMarkdown = require('remove-markdown');
+const moment = require('moment');
 
 export default class Note {
   constructor({ id = null, date = Date.now(), description = '' }) {
@@ -53,10 +54,16 @@ export default class Note {
     });
   }
 
+  // Presentation
   title() {
     return removeMarkdown(this.description).substring(0, 20);
   }
 
+  prettyDate() {
+    return moment(this.date).format('ddd Do MMM, h:mA');
+  }
+
+  // DB Methods
   save() {
     if (this.id === null) {
       this._create();
