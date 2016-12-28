@@ -62,11 +62,15 @@ export default class Note {
 
   // Presentation
   title() {
+    const titleLength = 116;
     let title = removeMarkdown(this.description);
 
-    title = title.split('\n')[0];                           // take the first line
-    title = title.substring(0, 116);                        // cut at about 4 lines of characters
-    title = title.substring(0, title.lastIndexOf(' ') + 1); // don't split halfway through a word
+    title = title.split('\n')[0]
+            .substring(0, titleLength);
+
+    if (title.charAt(titleLength + 1) !== ' ') {
+      title = title.substring(0, Math.min(title.length, title.lastIndexOf(' ')));
+    }
 
     return title;
   }
