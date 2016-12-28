@@ -27,12 +27,6 @@ Vue.component('note-item', {
 
   props: ['note'],
 
-  data: function () {
-    return {
-      isActive: false
-    };
-  },
-
   computed: {
     isActive: function () {
       return this.note.id === this.$parent.note.id;
