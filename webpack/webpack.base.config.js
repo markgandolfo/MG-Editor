@@ -60,10 +60,6 @@ module.exports = new WebpackConfig().merge({
         test: /\.(jpe?g|png|gif|ttf|eot|svg|woff2?)$/i,
         loader: 'file?name=[name].[hash].[ext]'
       },
-      // {
-      //   test: /\.css$/,
-      //   loader: 'style!css!sweetalert/dist/sweetalert.css'
-      // }
     ]
   },
 
