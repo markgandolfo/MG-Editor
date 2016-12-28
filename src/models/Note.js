@@ -62,7 +62,13 @@ export default class Note {
 
   // Presentation
   title() {
-    return removeMarkdown(this.description).substring(0, 20);
+    let title = removeMarkdown(this.description);
+
+    title = title.split('\n')[0];                           // take the first line
+    title = title.substring(0, 116);                        // cut at about 4 lines of characters
+    title = title.substring(0, title.lastIndexOf(' ') + 1); // don't split halfway through a word
+
+    return title;
   }
 
   prettyDate() {
