@@ -8,19 +8,11 @@
   border: 1px solid #efefef;
 }
 
-.left-rail a.new-note {
-  margin: 5px;
-  font-size: 1rem;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #fefefe;
-  display: block;
-}
-
 .left-rail div.date {
   color: #5b5b5b;
 }
 
-.left-rail a {
+.left-rail li > a {
   color: #5b5b5b;
   text-decoration: none;
   font-size: .8rem;
@@ -33,14 +25,16 @@
 }
 
 .left-rail li {
-  padding: 10px 5px;
+  padding: 10px;
   margin-bottom: 10px;
   display: block;
   border-bottom: 1px solid #efefef;
+  border-radius: 2px;
 }
 
 .left-rail li.active {
-  background: rgba(96, 255, 82, 0.32);
+  background: rgba(196, 254, 191, 0.32);
+  background: linear-gradient(to bottom, rgba(196, 254, 191, 0.32) 0%, rgba(196, 254, 191, 0.6) 50%, rgb(196, 254, 191) 100%);
 }
 .left-rail .pull-right {
   float: right;
@@ -53,4 +47,33 @@
 
 .left-rail li:hover .close {
   visibility: visible;
+}
+
+.left-rail a.btn, .left-rail a.btn:visited, .left-rail a.btn:link {
+  text-align: center;
+  border-radius: .3em;
+  border-style: solid;
+  border-width: 1px;
+  color: #111;
+  font-family: avenir,helvetica,arial,sans-serif;
+  letter-spacing: .15em;
+  margin-bottom: .5em;
+  padding: 1em .75em;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: color .4s,background-color .4s,border .4s;
+  font-size: .8rem;
+  display: block;
+}
+
+.left-rail a.btn:active {
+  color: #0074D9;
+  border: 1px solid #0074D9;
+  transition: background-color .3s,color .3s,border .3s;
+}
+
+.left-rail a.btn:hover, .left-rail a.btn:focus {
+  color: #7FDBFF;
+  border: 1px solid #7FDBFF;
+  transition: background-color .3s,color .3s,border .3s;
 }

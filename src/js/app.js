@@ -1,4 +1,6 @@
 import 'components/style.css';
+import 'sweetalert/dist/sweetalert.css';
+
 import _ from 'lodash';
 import AutoResizer from 'js/AutoResizer';
 import Note from 'models/Note';
