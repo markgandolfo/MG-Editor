@@ -33,9 +33,10 @@
 }
 
 .left-rail li.active {
-  background: rgba(196, 254, 191, 0.32);
-  background: linear-gradient(to bottom, rgba(196, 254, 191, 0.32) 0%, rgba(196, 254, 191, 0.6) 50%, rgb(196, 254, 191) 100%);
+  background: rgba(196, 254, 191, 0.2);
+  border-bottom: 1px solid rgba(196, 254, 191, 1);
 }
+
 .left-rail .pull-right {
   float: right;
 }
