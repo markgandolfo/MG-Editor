@@ -12,3 +12,10 @@ nav a {
   color: #333333;
   text-decoration: none;
 }
+
+nav a.github img {
+  height: 10px;
+  float: right;
+  margin-right: 20px;
+  margin-top: 5px;
+}
