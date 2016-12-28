@@ -42,3 +42,15 @@
 .left-rail li.active {
   background: rgba(96, 255, 82, 0.32);
 }
+.left-rail .pull-right {
+  float: right;
+}
+
+.left-rail .close {
+  visibility: hidden;
+  cursor: pointer;
+}
+
+.left-rail li:hover .close {
+  visibility: visible;
+}

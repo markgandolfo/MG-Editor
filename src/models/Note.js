@@ -47,6 +47,19 @@ export default class Note {
     });
   }
 
+  static delete(noteId, successCallback, errorCallback) {
+    Dexie.spawn(function* () {
+      yield db.notes.delete(noteId);
+      return successCallback();
+    }).catch((err) => {
+      console.error(`eek, delete went wrong: ${err}`); // eslint-disable-line no-console
+    });
+    if (errorCallback !== undefined) {
+      return errorCallback();
+    }
+    return null;
+  }
+
   // Presentation
   title() {
     return removeMarkdown(this.description).substring(0, 20);
@@ -71,7 +84,7 @@ export default class Note {
     const that = this;
 
     Dexie.spawn(function* () {
-      that.id = yield db.notes.put(that);
+      that.id = yield db.notes.put(that._asJson());
     }).catch((err) => {
       console.error(`eek create went wrong: ${err}`); // eslint-disable-line no-console
     });
@@ -85,5 +98,12 @@ export default class Note {
     }).catch((err) => {
       console.error(`eek update went wrong: ${err}`); // eslint-disable-line no-console
     });
+  }
+
+  _asJson() {
+    return {
+      description: this.description,
+      date: this.date
+    };
   }
 }

@@ -4,6 +4,8 @@
 @import './RightRail/RightRail';
 @import './MainContent/MainContent';
 
+@import '../../node_modules/sweetalert/dist/sweetalert.css';
+
 main {
   display: flex;
   overflow: hidden;

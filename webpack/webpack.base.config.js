@@ -31,10 +31,6 @@ module.exports = new WebpackConfig().merge({
   },
 
   module: {
-    loaders: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
-    ],
-
     preLoaders: [
       {
         test: /\.js$/i,
@@ -63,7 +59,11 @@ module.exports = new WebpackConfig().merge({
       {
         test: /\.(jpe?g|png|gif|ttf|eot|svg|woff2?)$/i,
         loader: 'file?name=[name].[hash].[ext]'
-      }
+      },
+      // {
+      //   test: /\.css$/,
+      //   loader: 'style!css!sweetalert/dist/sweetalert.css'
+      // }
     ]
   },
 
