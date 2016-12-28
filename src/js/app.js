@@ -112,7 +112,7 @@ new Vue({ // eslint-disable-line no-new
       if (this.notesList.length > 0) {
         this.note = this.notesList[0];
       } else {
-        this.note = new Note({ description: this.input });
+        this.note = new Note({ description: Note.defaultNote() });
       }
     },
 

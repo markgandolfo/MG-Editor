@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "build": "webpack --progress --bail",
     "start": "webpack --progress --bail && webpack-dev-server --progress --colors --port 8080",
+    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "deploy": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors && surge ./build mgwriter.surge.sh",
     "test": "jest"
   },
   "keywords": [],

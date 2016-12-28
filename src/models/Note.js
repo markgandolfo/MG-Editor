@@ -24,6 +24,10 @@ export default class Note {
     this.description = description;
   }
 
+  static defaultNote() {
+    return '# Welcome to MG-Writer\n\nMG-Writer is a simple, plain text editor. You can write using markdown and the notes will be saved locally in your browser.\n\nCreate new notes, edit and delete all from your browser.';
+  }
+
   static get(id) {
     Dexie.spawn(function* () {
       yield db.notes.where('id').eq(id).toArray();
