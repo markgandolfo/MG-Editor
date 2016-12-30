@@ -67,16 +67,18 @@ export default class Note {
   // Presentation
   title() {
     const titleLength = 116;
-    let title = removeMarkdown(this.description);
+    let truncatedTitle = removeMarkdown(this.description).split('\n')[0];
+    const titleChar117 = truncatedTitle.charAt(titleLength + 1);
 
-    title = title.split('\n')[0]
-            .substring(0, titleLength);
+    if (titleChar117 !== -1 && titleChar117 !== ' ') {
+      const spaceIndex = truncatedTitle.indexOf(' ', titleLength);
 
-    if (title.charAt(titleLength + 1) !== ' ') {
-      title = title.substring(0, Math.min(title.length, title.lastIndexOf(' ')));
+      if (spaceIndex !== -1) {
+        truncatedTitle = truncatedTitle.substring(0, spaceIndex);
+      }
     }
 
-    return title;
+    return truncatedTitle;
   }
 
   prettyDate() {
