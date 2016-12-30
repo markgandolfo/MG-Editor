@@ -2,7 +2,6 @@
 const currentDirectory = __dirname;
 import Note from '../../src/models/Note';
 
-
 describe('.title', () => {
   it('truncates on the first line break', () => {
     const note = new Note({
