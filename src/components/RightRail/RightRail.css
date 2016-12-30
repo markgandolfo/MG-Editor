@@ -2,7 +2,7 @@
   background: var(--main-background);
   font-family: var(--technical-font);
   border: 1px solid #efefef;
-  font-size: .8rem;
+  font-size: .9rem;
 
   display: flex;
   flex-grow: 0;
