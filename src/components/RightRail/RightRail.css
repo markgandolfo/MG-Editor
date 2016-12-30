@@ -10,6 +10,7 @@
   order: 3;
 
   padding: 10px;
+  overflow-x: scroll;
 }
 
 .right-rail > div {
