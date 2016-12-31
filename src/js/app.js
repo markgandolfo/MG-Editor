@@ -7,6 +7,7 @@ import Note from 'models/Note';
 import Vue from 'vue';
 import marked from 'marked';
 import swal from 'sweetalert';
+import LoadingScreen from 'components/LoadingScreen/LoadingScreen';
 
 const autoResizer = new AutoResizer('auto-heighter');
 autoResizer.resize();
@@ -82,6 +83,7 @@ new Vue({ // eslint-disable-line no-new
   mounted: function () {
     this.updateNoteList(() => {
       this.loadFirstNote();
+      LoadingScreen.closeLoadingScreen();
     });
   },
 
