@@ -34,8 +34,9 @@
 }
 
 .right-rail code {
-  background: #000000;
-  color: #ffffff;
+  background: #333333;
+  color: #fefefe;
+  padding: 1px 3px;
 }
 
 .right-rail pre code {

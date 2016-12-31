@@ -16,6 +16,10 @@ main {
   line-height: 1.5rem;
 }
 
+main a {
+  color: #5777e1;
+}
+
 input:focus, textarea:focus {
   outline: none;
 }
