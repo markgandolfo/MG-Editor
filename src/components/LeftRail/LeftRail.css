@@ -33,8 +33,8 @@
 }
 
 .left-rail li.active {
-  background: rgba(196, 254, 191, 0.2);
-  border-bottom: 1px solid rgba(196, 254, 191, 1);
+  background: rgba(150, 150, 208, 0.07);
+  border-bottom: 1px solid rgba(115, 179, 204, 0.43)
 }
 
 .left-rail .pull-right {
@@ -69,12 +69,12 @@
 
 .left-rail a.btn:active {
   color: #0074D9;
-  border: 1px solid #0074D9;
+  border: 1px solid #6e94b5;
   transition: background-color .3s,color .3s,border .3s;
 }
 
 .left-rail a.btn:hover, .left-rail a.btn:focus {
-  color: #7FDBFF;
-  border: 1px solid #7FDBFF;
+  color: #357e9b;
+  border: 1px solid #3c788f;
   transition: background-color .3s,color .3s,border .3s;
 }
