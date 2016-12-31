@@ -26,8 +26,7 @@ Webpack will take the dependencies listed and combine them into `vendor.js`. Whe
 ### Building
 
 * `yarn build`
-<!-- * `yarn build-production` Optimised bundle -->
-
+* `yarn test`
 ## The Application
 
 It lives in the wild [http://mgwriter.surge.sh](http://mgwriter.surge.sh).
