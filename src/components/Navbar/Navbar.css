@@ -13,9 +13,12 @@ nav a {
   text-decoration: none;
 }
 
-nav a.github img {
-  height: 10px;
+nav a.github {
+  height: 20px;
+  width: 20px;
   float: right;
   margin-right: 20px;
-  margin-top: 5px;
+  margin-top: 2px;
+  background-image: url(../assets/images/github.png);
+  background-size: cover;
 }
