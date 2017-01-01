@@ -7,7 +7,7 @@
   display: flex;
   flex-grow: 0;
   flex-basis:40%;
-  order: 3;
+  order: 5;
 
   padding: 10px;
   overflow-x: scroll;
@@ -42,4 +42,8 @@
 .right-rail pre code {
   display: block;
   padding: 10px;
+}
+
+.right-handle {
+  order: 4;
 }

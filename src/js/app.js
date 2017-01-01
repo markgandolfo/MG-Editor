@@ -3,6 +3,7 @@ import 'sweetalert/dist/sweetalert.css';
 
 import _ from 'lodash';
 import AutoResizer from 'js/AutoResizer';
+import DragResizer from 'js/DragResizer';
 import Note from 'models/Note';
 import Vue from 'vue';
 import marked from 'marked';
@@ -84,6 +85,8 @@ new Vue({ // eslint-disable-line no-new
     this.updateNoteList(() => {
       this.loadFirstNote();
       LoadingScreen.closeLoadingScreen();
+      new DragResizer('left-handle', 'left-rail').bind(); // eslint-disable-line no-new
+      new DragResizer('right-handle', 'right-rail', { right: true }).bind(); // eslint-disable-line no-new
     });
   },
 

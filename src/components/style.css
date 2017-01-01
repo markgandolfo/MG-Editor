@@ -23,3 +23,8 @@ main a {
 input:focus, textarea:focus {
   outline: none;
 }
+
+.handle {
+  border: 1px dotted #ccc;
+  cursor: col-resize;;
+}

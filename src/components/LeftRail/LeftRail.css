@@ -2,7 +2,7 @@
   background-color: #fbfbfb;
   text-align: left;
   flex-grow: 0;
-  flex-basis:200px;
+  flex-basis: 200px;
   padding: 10px;
   order: 1;
   border: 1px solid #efefef;
@@ -58,13 +58,14 @@
   color: #111;
   font-family: avenir,helvetica,arial,sans-serif;
   letter-spacing: .15em;
-  margin-bottom: .5em;
+  margin: .5em auto;
   padding: .5em .75em;
   text-decoration: none;
   text-transform: uppercase;
   transition: color .4s,background-color .4s,border .4s;
   font-size: .8rem;
   display: block;
+  max-width: 200px;
 }
 
 .left-rail a.btn:active {
@@ -77,4 +78,8 @@
   color: #357e9b;
   border: 1px solid #3c788f;
   transition: background-color .3s,color .3s,border .3s;
+}
+
+.left-handle {
+  order: 2;
 }
