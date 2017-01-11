@@ -12,6 +12,7 @@
 
 <script>
 import swal from 'sweetalert';
+import Note from '../../models/Note';
 
 export default {
   props: ['note'],
