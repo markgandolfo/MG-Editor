@@ -97,6 +97,7 @@ module.exports = new WebpackConfig().merge({
       template: './src/index.ejs',
       inject: 'body'
     }),
-    new WebpackCleanupPlugin()
+    new WebpackCleanupPlugin(),
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/)
   ]
 });
