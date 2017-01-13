@@ -2,9 +2,6 @@
 @import '../lib/variables.css';
 @import './Navbar/Navbar';
 @import './LeftRail/LeftRail';
-@import './RightRail/RightRail';
-@import './MainContent/MainContent';
-@import '../../node_modules/sweetalert/dist/sweetalert.css';
 @import './LoadingScreen/LoadingScreen';
 
 main {

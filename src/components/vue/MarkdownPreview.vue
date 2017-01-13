@@ -1,3 +1,34 @@
+<template>
+  <div class="right-rail auto-heighter">
+    <div v-html="compiledMarkdown"></div>
+  </div>
+</template>
+
+<script>
+import marked from 'marked';
+import DragResizer from 'js/DragResizer';
+import _store from '../../js/store';
+
+export default {
+  data: function() {
+    return {
+      state: _store.state
+    }
+  },
+
+  mounted: function() {
+    new DragResizer('right-handle', 'right-rail', { right: true }).bind(); // eslint-disable-line no-new
+  },
+
+  computed: {
+    compiledMarkdown: function () {
+      return marked(this.state.message, { sanitize: true });
+    }
+  },
+}
+</script>
+
+<style>
 .right-rail {
   background: var(--main-background);
   font-family: var(--technical-font);
@@ -47,3 +78,4 @@
 .right-handle {
   order: 4;
 }
+</style>

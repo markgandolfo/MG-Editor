@@ -47,6 +47,8 @@ export default class Note {
           });
       });
 
+      notes = _.orderBy(notes, 'id', ['desc']);
+
       return callback(notes);
     });
   }
@@ -97,20 +99,20 @@ export default class Note {
   }
 
   _create() {
-    const that = this;
+    const _this = this;
 
     Dexie.spawn(function* () {
-      that.id = yield db.notes.put(that._asJson());
+      _this.id = yield db.notes.put(_this._asJson());
     }).catch((err) => {
       console.error(`eek create went wrong: ${err}`); // eslint-disable-line no-console
     });
   }
 
   _update() {
-    const that = this;
+    const _this = this;
 
     Dexie.spawn(function* () {
-      yield db.notes.update(that.id, that);
+      yield db.notes.update(_this.id, _this._asJson());
     }).catch((err) => {
       console.error(`eek update went wrong: ${err}`); // eslint-disable-line no-console
     });
