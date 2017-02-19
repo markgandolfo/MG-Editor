@@ -5,8 +5,8 @@
 </template>
 
 <script>
-import _store from '../../js/store';
-import Note from '../../models/Note';
+import _store from 'js/store';
+import Note from 'models/Note';
 import NoteListItem from 'components/vue/NoteListItem.vue';
 
 export default {

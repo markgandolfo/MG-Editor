@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 @import '../lib/variables.css';
-@import './LeftRail/LeftRail';
 @import './LoadingScreen/LoadingScreen';
 
 main {

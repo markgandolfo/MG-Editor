@@ -8,7 +8,7 @@
 
 <script>
 import _ from 'lodash';
-import _store from '../../js/store';
+import _store from 'js/store';
 
 export default {
   data: function() {

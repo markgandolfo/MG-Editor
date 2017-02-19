@@ -1,6 +1,6 @@
 'use strict';
 const currentDirectory = __dirname;
-import Note from '../../src/models/Note';
+import Note from 'models/Note';
 
 describe('.title', () => {
   it('truncates on the first line break', () => {

@@ -6,7 +6,7 @@
 
 <script>
 import marked from 'marked';
-import _store from '../../js/store';
+import _store from 'js/store';
 
 export default {
   data: function() {

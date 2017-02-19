@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "webpack --progress --bail && webpack-dev-server --progress --colors --port 8080",
-    "build": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
-    "deploy": "webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors && surge ./build mgwriter.surge.sh",
-    "test": "jest"
+    "start": "NODE_PATH=src webpack --progress --bail && webpack-dev-server --progress --colors --port 8080",
+    "build": "NODE_PATH=src webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "deploy": "NODE_PATH=src webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors && surge ./build mgwriter.surge.sh",
+    "test": "NODE_PATH=src jest"
   },
   "keywords": [],
   "author": "",
@@ -40,6 +40,7 @@
     "style-loader": "^0.13.1",
     "uglify-js": "^2.7.4",
     "vue-loader": "^10.0.2",
+    "vue-template-compiler": "^2.1.8",
     "webpack": "^1.13.3",
     "webpack-cleanup-plugin": "^0.4.1",
     "webpack-config": "^6.2.1",
@@ -53,7 +54,6 @@
     "normalize.css": "^5.0.0",
     "remove-markdown": "^0.1.0",
     "sweetalert": "^1.1.3",
-    "vue": "^2.1.8",
-    "vue-template-compiler": "^2.1.8"
+    "vue": "^2.1.8"
   }
 }

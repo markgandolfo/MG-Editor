@@ -14,9 +14,9 @@
 import 'sweetalert/dist/sweetalert.css';
 import swal from 'sweetalert';
 import _ from 'lodash';
-import Note from '../../models/Note';
-import _store from '../../js/store';
-import _swalDeleteConfig from '../../config/swal_config.js';
+import Note from 'models/Note';
+import _store from 'js/store';
+import _swalDeleteConfig from 'config/swal_config.js';
 
 export default {
   props: ['note'],
