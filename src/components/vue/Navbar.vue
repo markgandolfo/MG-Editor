@@ -1,3 +1,16 @@
+<template>
+  <nav>
+    <a class="brand" href="/">MG Editor</a>
+    <a class="github" href="https://github.com/markgandolfo/MG-Editor"></a>
+  </nav>
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style>
 nav {
   width: 100%;
   padding: 10px;
@@ -19,6 +32,7 @@ nav a.github {
   float: right;
   margin-right: 20px;
   margin-top: 2px;
-  background-image: url(../assets/images/github.png);
+  background-image: url(../../assets/images/github.png);
   background-size: cover;
 }
+</style>

@@ -36,7 +36,7 @@ export default {
     flex-grow: 1;
     color: black;
     padding: 10px;
-    order: 3;
+    /*order: 3;*/
 
     font-size: .9rem;
     line-height: 1.5rem;

@@ -11,16 +11,19 @@
   </head>
 
   <body class="type-body">
-    <% include components/LoadingScreen/LoadingScreen %>
-    <% include components/Navbar/Navbar %>
+    <div id="main-content">
+      <% include components/LoadingScreen/LoadingScreen %>
+      <navbar></navbar>
 
-    <main role="main" id="main-content">
-      <% include components/LeftRail/LeftRail %>
-      <markdown-editor></markdown-editor>
-      <markdown-preview></markdown-preview>
-      <div class="handle right-handle auto-heighter"></div>
-    </main>
+      <main role="main">
+        <left-rail></left-rail>
+        <column-resizer grow-direction="left"></column-resizer>
+        <markdown-editor></markdown-editor>
+        <column-resizer grow-direction="right"></column-resizer>
+        <markdown-preview></markdown-preview>
+      </main>
 
-    <% include components/Analytics/Analytics %>
+      <% include components/Analytics/Analytics %>
+    </div>
   </body>
 </html>

@@ -6,7 +6,6 @@
 
 <script>
 import marked from 'marked';
-import DragResizer from 'js/DragResizer';
 import _store from '../../js/store';
 
 export default {
@@ -14,10 +13,6 @@ export default {
     return {
       state: _store.state
     }
-  },
-
-  mounted: function() {
-    new DragResizer('right-handle', 'right-rail', { right: true }).bind(); // eslint-disable-line no-new
   },
 
   computed: {
@@ -38,7 +33,6 @@ export default {
   display: flex;
   flex-grow: 0;
   flex-basis:40%;
-  order: 5;
 
   padding: 10px;
   overflow-x: scroll;
@@ -73,9 +67,5 @@ export default {
 .right-rail pre code {
   display: block;
   padding: 10px;
-}
-
-.right-handle {
-  order: 4;
 }
 </style>

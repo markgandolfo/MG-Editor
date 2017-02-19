@@ -1,10 +1,45 @@
+<template lang="html">
+  <div>
+    <div class="left-rail auto-heighter">
+      <a href="#" class="new-note btn" v-on:click="addNewNote">New Note</a>
+      <note-list></note-list>
+    </div>
+  </div>
+</template>
+
+<script>
+import Note from 'models/Note';
+import NoteList from 'components/vue/NoteList.vue';
+import _store from 'js/store';
+
+export default {
+  components: {
+    NoteList
+  },
+
+  data() {
+    return {
+      state: _store.state,
+      store: _store
+    }
+  },
+
+  methods: {
+    addNewNote: function () {
+      this.store.setCurrentNote(new Note({ description: '' }));
+      this.store.clearMessage();
+    }
+  }
+}
+</script>
+
+<style lang="css">
 .left-rail {
   background-color: #fbfbfb;
   text-align: left;
   flex-grow: 0;
   flex-basis: 200px;
   padding: 10px;
-  order: 1;
   border: 1px solid #efefef;
 }
 
@@ -37,7 +72,4 @@
   border: 1px solid #3c788f;
   transition: background-color .3s,color .3s,border .3s;
 }
-
-.left-handle {
-  order: 2;
-}
+</style>
