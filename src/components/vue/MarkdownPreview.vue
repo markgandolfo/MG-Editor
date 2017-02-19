@@ -11,13 +11,13 @@ import _store from 'js/store';
 export default {
   data: function() {
     return {
-      state: _store.state
+      store: _store
     }
   },
 
   computed: {
     compiledMarkdown: function () {
-      return marked(this.state.message, { sanitize: true });
+      return marked(this.store.state.message, { sanitize: true });
     }
   },
 }

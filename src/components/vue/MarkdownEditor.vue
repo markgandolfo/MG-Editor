@@ -1,7 +1,7 @@
 <template>
   <textarea
     class="main-content auto-heighter"
-    v-model="state.message"
+    v-model="store.state.message"
     @input="update" >
   </textarea>
 </template>
@@ -13,14 +13,15 @@ import _store from 'js/store';
 export default {
   data: function() {
     return {
-      state: _store.state
+      store: _store
     }
   },
 
   methods: {
     update: _.debounce(function (e) {
-      this.state.currentNote.description = this.state.message = e.target.value;
-      this.state.currentNote.save();
+      this.store.setMessage(e.target.value);
+      this.store.state.currentNote.description = this.store.state.message;
+      this.store.state.currentNote.save();
     }, 300),
   },
 }
@@ -36,7 +37,6 @@ export default {
     flex-grow: 1;
     color: black;
     padding: 10px;
-    /*order: 3;*/
 
     font-size: .9rem;
     line-height: 1.5rem;

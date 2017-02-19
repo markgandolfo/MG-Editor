@@ -5,11 +5,6 @@
   </nav>
 </template>
 
-<script>
-export default {
-}
-</script>
-
 <style>
 nav {
   width: 100%;

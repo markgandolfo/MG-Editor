@@ -19,7 +19,6 @@ export default {
 
   data() {
     return {
-      state: _store.state,
       store: _store
     }
   },

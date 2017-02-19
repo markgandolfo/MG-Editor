@@ -1,6 +1,6 @@
 <template>
   <ul class="list-group">
-    <note-list-item v-for="note in state.notesList" :key="note.id" :note="note"></note-list-item>
+    <note-list-item v-for="note in store.state.notesList" :key="note.id" :note="note"></note-list-item>
   </ul>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 
   data() {
     return {
-      state: _store.state
+      store: _store
     }
   },
 
@@ -27,19 +27,15 @@ export default {
   },
 
   watch: {
-    'state.currentNote.description': function () {
+    'store.state.currentNote.description': function () {
       this.updateNoteList();
     },
-
-    'state.notesList': function () {
-      this.updateNoteList();
-    }
   },
 
   methods: {
     updateNoteList: function (callback) {
       Note.all((notes) => {
-        this.state.notesList = notes;
+        this.store.setNotesList(notes);
 
         if (callback !== undefined) {
           return callback();
@@ -49,11 +45,11 @@ export default {
     },
 
     loadFirstNote: function () {
-      if (this.state.notesList.length > 0) {
-        this.state.currentNote = this.state.notesList[0];
-        this.state.message = this.state.notesList[0].description;
+      if (this.store.state.notesList.length > 0) {
+        this.store.setCurrentNote (this.store.state.notesList[0]);
+        this.store.setMessage(this.store.state.notesList[0].description);
       } else {
-        this.state.currentNote = new Note({ description: Note.defaultNote() });
+        this.store.setCurrentNote(new Note({ description: Note.defaultNote() }));
       }
     },
   }

@@ -21,4 +21,9 @@ export default {
     this.debug && console.log('Clearing Message');
     this.state.message = '';
   },
+
+  setNotesList(value) {
+    this.debug && console.log('Set NotesList:', value.length, 'items');
+    this.state.notesList = value;
+  }
 };

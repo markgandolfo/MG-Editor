@@ -23,20 +23,20 @@ export default {
 
   data: function() {
     return {
-      state: _store.state
+      store: _store
     }
   },
 
   computed: {
     isActive: function () {
-      return this.note.id === this.state.currentNote.id;
+      return this.note.id === this.store.state.currentNote.id;
     }
   },
 
   methods: {
     openNote: function () {
-      this.state.currentNote = this.note;
-      this.state.message = this.state.currentNote.description;
+      this.store.setCurrentNote(this.note);
+      this.store.setMessage(this.store.state.currentNote.description);
     },
 
     deleteNote: function () {
@@ -51,13 +51,13 @@ export default {
     },
 
     _loadFirstAvailableNote(recentlyDeletedId) {
-      if (this.state.currentNote.id === recentlyDeletedId) {
-        const newNote = _.find(this.state.notesList, function (note) {
+      if (this.store.state.currentNote.id === recentlyDeletedId) {
+        const newNote = _.find(this.store.state.notesList, function (note) {
           return note.id !== recentlyDeletedId;
         });
 
-        this.state.currentNote = newNote;
-        this.state.message = newNote.description;
+        this.store.getCurrentNote(newNote);
+        this.store.setMessage(newNote.description);
       }
     }
 
