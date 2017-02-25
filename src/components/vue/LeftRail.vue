@@ -10,16 +10,15 @@
 <script>
 import Note from 'models/Note';
 import NoteList from 'components/vue/NoteList.vue';
-import _store from 'js/store';
 
 export default {
   components: {
     NoteList
   },
 
-  data() {
-    return {
-      store: _store
+  computed: {
+    store: function() {
+      return this.$root.$data.store;
     }
   },
 

@@ -1,7 +1,8 @@
 <template>
   <nav>
-    <a class="brand" href="/">MG Editor</a>
-    <a class="github" href="https://github.com/markgandolfo/MG-Editor"></a>
+    <router-link class="brand" to="/">MG Editor</router-link>
+    <a class="github pull-right" href="https://github.com/markgandolfo/MG-Editor"></a>
+    <!-- <router-link to="/options" class="pull-right">⚙️</router-link> -->
   </nav>
 </template>
 
@@ -21,12 +22,15 @@ nav a {
   text-decoration: none;
 }
 
+nav .pull-right {
+  float: right;
+  margin-right: 15px;
+}
+
 nav a.github {
   height: 20px;
   width: 20px;
-  float: right;
   margin-right: 20px;
-  margin-top: 2px;
   background-image: url(../../assets/images/github.png);
   background-size: cover;
 }

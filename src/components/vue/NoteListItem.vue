@@ -15,21 +15,18 @@ import 'sweetalert/dist/sweetalert.css';
 import swal from 'sweetalert';
 import _ from 'lodash';
 import Note from 'models/Note';
-import _store from 'js/store';
 import _swalDeleteConfig from 'config/swal_config.js';
 
 export default {
   props: ['note'],
 
-  data: function() {
-    return {
-      store: _store
-    }
-  },
-
   computed: {
     isActive: function () {
       return this.note.id === this.store.state.currentNote.id;
+    },
+
+    store: function () {
+      return this.$root.$data.store;
     }
   },
 
@@ -88,6 +85,7 @@ export default {
   display: block;
   border-bottom: 1px solid #efefef;
   border-radius: 2px;
+  max-width: 250px;
 }
 
 .left-rail li.active {

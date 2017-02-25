@@ -1,26 +1,24 @@
 <template>
   <textarea
     class="main-content auto-heighter"
-    v-model="store.state.message"
+    v-model="store.state.currentNote.description"
     @input="update" >
   </textarea>
 </template>
 
 <script>
 import _ from 'lodash';
-import _store from 'js/store';
 
 export default {
-  data: function() {
-    return {
-      store: _store
+  computed: {
+    store: function() {
+      return this.$root.$data.store;
     }
   },
 
   methods: {
     update: _.debounce(function (e) {
       this.store.setMessage(e.target.value);
-      this.store.state.currentNote.description = this.store.state.message;
       this.store.state.currentNote.save();
     }, 300),
   },

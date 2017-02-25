@@ -1,34 +1,45 @@
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+
+import LoadingScreen from 'components/LoadingScreen/LoadingScreen.js';
+import Editor from 'components/pages/Editor.vue';
+import Options from 'components/pages/Options.vue';
+
+import Config from 'models/Config.js';
+import store from 'js/store';
+
 import 'components/style.css';
 
-import AutoResizer from 'js/AutoResizer';
-import Vue from 'vue';
-import LoadingScreen from 'components/LoadingScreen/LoadingScreen';
-import LeftRail from 'components/vue/LeftRail.vue';
-import ColumnResizer from 'components/vue/ColumnResizer.vue';
-import Navbar from 'components/vue/Navbar.vue';
-import MarkdownEditor from 'components/vue/MarkdownEditor.vue';
-import MarkdownPreview from 'components/vue/MarkdownPreview.vue';
-import _store from 'js/store';
+const About = { template: '<p>About</p>' };
+const NotFound = { template: '<p>404 Not Found</p>' };
+
+const routes = [
+  { path: '/', component: Editor },
+  { path: '/options', component: Options },
+  { path: '/about', component: About },
+  { path: '*', component: NotFound }
+];
+
+const router = new VueRouter({
+  routes
+});
+
+Vue.use(VueRouter);
 
 new Vue({ // eslint-disable-line no-new
-  el: '#main-content',
-
-  components: {
-    Navbar,
-    ColumnResizer,
-    LeftRail,
-    MarkdownEditor,
-    MarkdownPreview
-  },
+  router,
 
   data: {
-    state: _store.state
+    store: store
+  },
+
+  beforeCreate() {
+    Config.getByType('font', (config) => {
+      this.store.font = config[0].configuration.font || this.store.font;
+    });
   },
 
   mounted() {
-    const autoResizer = new AutoResizer('auto-heighter');
-    autoResizer.resize();
-    autoResizer.autoResizeOnWindowResize();
-    LoadingScreen.closeLoadingScreen();
-  },
-});
+    LoadingScreen.close();
+  }
+}).$mount('#main-content');

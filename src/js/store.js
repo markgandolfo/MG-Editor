@@ -1,9 +1,10 @@
+import Note from 'models/Note.js';
+
 export default {
   debug: process.env.NODE_ENV !== 'production' || false,
 
   state: {
-    message: '',
-    currentNote: null,
+    currentNote: new Note({ description: 'enter text here' }),
     notesList: []
   },
 
@@ -14,12 +15,12 @@ export default {
 
   setMessage(value) {
     this.debug && console.log('Set Message:', value);
-    this.state.message = value;
+    this.state.currentNote.description = value;
   },
 
   clearMessage() {
     this.debug && console.log('Clearing Message');
-    this.state.message = '';
+    this.state.currentNote = new Note({ description: '' });
   },
 
   setNotesList(value) {

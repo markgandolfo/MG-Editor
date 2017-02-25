@@ -6,18 +6,15 @@
 
 <script>
 import marked from 'marked';
-import _store from 'js/store';
 
 export default {
-  data: function() {
-    return {
-      store: _store
-    }
-  },
-
   computed: {
+    store: function() {
+      return this.$root.$data.store;
+    },
+
     compiledMarkdown: function () {
-      return marked(this.store.state.message, { sanitize: true });
+      return marked(this.store.state.currentNote.description, { sanitize: true });
     }
   },
 }

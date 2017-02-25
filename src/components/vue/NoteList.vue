@@ -5,19 +5,13 @@
 </template>
 
 <script>
-import _store from 'js/store';
 import Note from 'models/Note';
 import NoteListItem from 'components/vue/NoteListItem.vue';
+import _ from 'lodash';
 
 export default {
   components: {
     NoteListItem
-  },
-
-  data() {
-    return {
-      store: _store
-    }
   },
 
   beforeMount: function () {
@@ -26,11 +20,18 @@ export default {
     });
   },
 
-  watch: {
-    'store.state.currentNote.description': function () {
-      this.updateNoteList();
-    },
+  computed: {
+    store: function() {
+      return this.$root.$data.store;
+    }
   },
+
+  watch: {
+    'store.state.currentNote.description': _.debounce(function (e) {
+      this.updateNoteList();
+    }, 300),
+  },
+
 
   methods: {
     updateNoteList: function (callback) {

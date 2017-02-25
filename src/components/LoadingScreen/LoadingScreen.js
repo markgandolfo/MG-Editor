@@ -1,5 +1,5 @@
 export default class LoadingScreen {
-  static closeLoadingScreen() {
+  static close() {
     const body = window.document.getElementsByTagName('body')[0];
     body.className = 'loaded';
   }

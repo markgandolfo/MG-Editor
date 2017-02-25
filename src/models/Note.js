@@ -1,21 +1,8 @@
 import _ from 'lodash';
 import removeMarkdown from 'remove-markdown';
-import Dexie from 'dexie';
 import moment from 'moment';
-
-const db = new Dexie('mgWriterNoteApp');
-
-db.version(1).stores({
-  notes: '++id,title,date,description'
-});
-
-db.version(2).stores({
-  notes: '++id,date,description'
-}).upgrade((trans) => {
-  trans.notes.toCollection().modify((note) => {
-    delete note.title; // eslint-disable-line no-param-reassign
-  });
-});
+import Dexie from 'dexie';
+import db from 'repositories/DexieBase';
 
 export default class Note {
   constructor({ id = null, date = Date.now(), description = '' }) {
