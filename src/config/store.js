@@ -5,7 +5,13 @@ export default {
 
   state: {
     currentNote: new Note({ description: 'enter text here' }),
-    notesList: []
+    notesList: [],
+    font: "'Open Sans', sans-serif"
+  },
+
+  setFont(value) {
+    this.debug && console.log('Set current font', value);
+    this.state.font = value;
   },
 
   setCurrentNote(value) {

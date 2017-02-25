@@ -7,7 +7,7 @@ import Options from 'components/pages/Options.vue';
 import Navbar from 'components/vue/Navbar.vue';
 
 import Config from 'models/Config.js';
-import store from 'js/store';
+import store from 'config/store.js';
 
 import 'components/style.css';
 
