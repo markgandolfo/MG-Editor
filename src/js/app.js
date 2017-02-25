@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import Vue from 'vue'; // eslint-disable-line
 import VueRouter from 'vue-router';
 
 import LoadingScreen from 'components/LoadingScreen/LoadingScreen.js';
@@ -40,7 +40,9 @@ new Vue({ // eslint-disable-line no-new
 
   beforeCreate() {
     Config.getByType('font', (config) => {
-      this.store.font = config[0].configuration.font || this.store.font;
+      if (config.length > 0) {
+        this.store.setFont(config[0].configuration.font);
+      }
     });
   },
 

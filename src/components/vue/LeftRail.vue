@@ -1,9 +1,7 @@
 <template lang="html">
-  <div>
-    <div class="left-rail auto-heighter">
-      <a href="#" class="new-note btn" v-on:click="addNewNote">New Note</a>
-      <note-list></note-list>
-    </div>
+  <div class="left-rail auto-heighter">
+    <a href="#" class="new-note btn" v-on:click="addNewNote">New Note</a>
+    <note-list></note-list>
   </div>
 </template>
 
@@ -31,7 +29,7 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" scoped>
 .left-rail {
   background-color: #fbfbfb;
   text-align: left;
