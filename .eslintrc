@@ -4,12 +4,12 @@
   ],
 
   "plugins": [
-    "import"
+    "import",
+    "vue"
   ],
 
   "env": {
     "es6": true,
-    "jquery": true,
     "jest": true
   },
 
