@@ -32,7 +32,7 @@ module.exports = function(env) {
           unused: true
         }
       }),
-      new FaviconsWebpackPlugin('./src/assets/img/favicon.png')
+      // new FaviconsWebpackPlugin('./src/assets/img/favicon.png')
     ]
   });
 }
