@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "start": "NODE_PATH=src webpack --progress --bail && NODE_PATH=src webpack-dev-server --progress --colors --port 8080",
-    "build": "NODE_PATH=src webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
-    "deploy": "NODE_PATH=src webpack -p --define process.env.NODE_ENV='\"production\"' --progress --colors && surge ./build mgwriter.surge.sh",
+    "start": "NODE_PATH=src webpack --env=dev --progress --bail && NODE_PATH=src webpack-dev-server --env=dev --progress --colors --port 8080",
+    "build": "NODE_PATH=src webpack --env=prod -p --define process.env.NODE_ENV='\"production\"' --progress --colors",
+    "deploy": "NODE_PATH=src webpack --env=prod -p --define process.env.NODE_ENV='\"production\"' --progress --colors && surge ./build mgwriter.surge.sh",
     "test": "NODE_PATH=src jest"
   },
   "keywords": [],
@@ -28,10 +28,10 @@
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^3.0.2",
     "eslint-plugin-react": "^6.7.1",
-    "extract-text-webpack-plugin": "^1.0.1",
+    "extract-text-webpack-plugin": "^2.0.0",
     "favicons-webpack-plugin": "^0.0.7",
     "file-loader": "^0.9.0",
-    "html-webpack-plugin": "^2.24.1",
+    "html-webpack-plugin": "^2.28.0",
     "jest": "^18.0.0",
     "json-loader": "^0.5.4",
     "postcss-cssnext": "^2.8.0",
@@ -41,10 +41,10 @@
     "uglify-js": "^2.7.4",
     "vue-loader": "^11.1.3",
     "vue-template-compiler": "^2.1.10",
-    "webpack": "^1.13.3",
-    "webpack-cleanup-plugin": "^0.4.1",
-    "webpack-config": "^6.2.1",
-    "webpack-dev-server": "^1.16.2"
+    "webpack": "^2.2.1",
+    "webpack-cleanup-plugin": "^0.4.2",
+    "webpack-config": "^7.0.0",
+    "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {
     "dexie": "^1.5.1",
@@ -55,6 +55,7 @@
     "remove-markdown": "^0.1.0",
     "sweetalert": "^1.1.3",
     "vue": "^2.1.10",
-    "vue-router": "^2.2.1"
+    "vue-router": "^2.2.1",
+    "webpack-merge": "^3.0.0"
   }
 }

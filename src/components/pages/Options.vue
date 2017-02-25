@@ -1,25 +1,16 @@
 <template lang="html">
-  <div>
-    <navbar></navbar>
-    <main role="main" class="options">
-      <options-font></options-font>
-    </main>
-  </div>
+  <main role="main" class="options">
+    <options-font></options-font>
+  </main>
 </template>
 
 <script>
-import Navbar from 'components/vue/Navbar.vue';
 import OptionsFont from 'components/vue/OptionsFont.vue';
 
 export default {
   components: {
-    Navbar,
     OptionsFont
   },
-
-  mounted() {
-    console.log(this);
-  }
 }
 </script>
 

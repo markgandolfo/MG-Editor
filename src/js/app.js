@@ -4,6 +4,7 @@ import VueRouter from 'vue-router';
 import LoadingScreen from 'components/LoadingScreen/LoadingScreen.js';
 import Editor from 'components/pages/Editor.vue';
 import Options from 'components/pages/Options.vue';
+import Navbar from 'components/vue/Navbar.vue';
 
 import Config from 'models/Config.js';
 import store from 'js/store';
@@ -28,6 +29,10 @@ Vue.use(VueRouter);
 
 new Vue({ // eslint-disable-line no-new
   router,
+
+  components: {
+    Navbar
+  },
 
   data: {
     store: store

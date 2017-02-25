@@ -1,10 +1,5 @@
-const WebpackConfig = require('webpack-config').default;
-const environment = require('webpack-config').environment;
+function buildConfig(env) {
+  return require('./webpack/' + env + '.js')({ env: env })
+}
 
-environment.setAll({
-  env: function() {
-    return process.env.NODE_ENV || 'development';
-  }
-});
-
-exports.default = new WebpackConfig().extend('webpack/webpack.[env].config.js');
+module.exports = buildConfig;
