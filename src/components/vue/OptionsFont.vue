@@ -25,14 +25,22 @@ export default {
 
   methods: {
     submit: function() {
-      const config = new Config({
-        type: 'font',
-        configuration: {
-          font: this.store.font
+      console.log(this.store.state.font);
+      Config.getByType('font', (config) => {
+        if (config.length > 0) {
+          config[0].configuration.font = this.store.state.font;
+          config[0].save();
+          this.$router.push('/');
+        } else {
+          new Config({
+            type: 'font',
+            configuration: {
+              font: this.store.state.font
+            }
+          }).save();
+          this.$router.push('/');
         }
       });
-
-      config.save();
     }
   }
 }

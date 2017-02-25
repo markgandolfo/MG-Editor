@@ -1,6 +1,9 @@
 <template>
   <div class="right-rail auto-heighter">
-    <div v-html="compiledMarkdown"></div>
+    <div
+      v-html="compiledMarkdown"
+      v-bind:style="{ 'font-family': this.store.state.font }">
+      </div>
   </div>
 </template>
 
@@ -23,7 +26,6 @@ export default {
 <style>
 .right-rail {
   background: var(--main-background);
-  font-family: var(--technical-font);
   border: 1px solid #efefef;
   font-size: .9rem;
 

@@ -2,7 +2,8 @@
   <textarea
     class="main-content auto-heighter"
     v-model="store.state.currentNote.description"
-    @input="update" >
+    @input="update"
+    v-bind:style="{ 'font-family': this.store.state.font }">
   </textarea>
 </template>
 
