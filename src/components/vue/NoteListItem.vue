@@ -53,7 +53,7 @@ export default {
           return note.id !== recentlyDeletedId;
         });
 
-        this.store.getCurrentNote(newNote);
+        this.store.setCurrentNote(newNote);
         this.store.setMessage(newNote.description);
       }
     }
