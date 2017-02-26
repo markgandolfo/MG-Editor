@@ -3,7 +3,8 @@
     class="main-content auto-heighter"
     v-model="store.state.currentNote.description"
     @input="update"
-    v-bind:style="{ 'font-family': this.store.state.font }">
+    v-bind:style="{ 'font-family': this.store.state.font }"
+    placeholder="Start typing here" >
   </textarea>
 </template>
 
