@@ -1,5 +1,6 @@
 import Vue from 'vue'; // eslint-disable-line
 import VueRouter from 'vue-router';
+import VueEvents from 'vue-events';
 
 import LoadingScreen from 'components/LoadingScreen/LoadingScreen.js';
 import Editor from 'components/pages/Editor.vue';
@@ -26,6 +27,7 @@ const router = new VueRouter({
 });
 
 Vue.use(VueRouter);
+Vue.use(VueEvents);
 
 new Vue({ // eslint-disable-line no-new
   router,

@@ -20,6 +20,10 @@ export default {
     });
   },
 
+  mounted() {
+    this.$events.on('deleteNoteEvent', eventData => { this.updateNoteList(); })
+  },
+
   computed: {
     store: function() {
       return this.$root.$data.store;

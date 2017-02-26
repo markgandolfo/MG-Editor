@@ -40,9 +40,9 @@ export default {
       const clickedNoteId = parseInt(this.note.id, 10);
 
       swal(_swalDeleteConfig, () => {
-        const _this = this;
         Note.delete(clickedNoteId, () => {
           this._loadFirstAvailableNote(clickedNoteId);
+          this.$events.emit('deleteNoteEvent', { noteId: clickedNoteId });
         });
       });
     },
