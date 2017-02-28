@@ -58,6 +58,7 @@
     "vue": "^2.1.10",
     "vue-events": "^3.0.0",
     "vue-router": "^2.2.1",
+    "vue-search-select": "^2.3.6",
     "webpack-merge": "^3.0.0"
   }
 }
