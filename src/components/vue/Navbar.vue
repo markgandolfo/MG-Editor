@@ -2,7 +2,7 @@
   <nav>
     <router-link class="brand" to="/">MG Editor</router-link>
     <a class="github pull-right" href="https://github.com/markgandolfo/MG-Editor"></a>
-    <!-- <router-link to="/options" class="pull-right">⚙️</router-link> -->
+    <router-link to="/options" class="pull-right">⚙️</router-link>
   </nav>
 </template>
 
