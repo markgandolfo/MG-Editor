@@ -4,9 +4,8 @@
 
 main {
   display: flex;
-  overflow: hidden;
   color: var(--font-color);
-  border: 1px solid #c7c7c7;
+  border-top: 1px solid #c7c7c7;
   align-items: center;
   line-height: 1.5rem;
 }
