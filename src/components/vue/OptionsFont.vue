@@ -8,7 +8,7 @@
                     @select="onSelect">
       </basic-select>
       <p>
-        <input type="button" v-on:click="submit" value="save" />
+        <anchor-button :onClick="submit">Save</anchor-button>
       </p>
     </fieldset>
   </form>
@@ -19,8 +19,12 @@ import { BasicSelect } from 'vue-search-select';
 import Config from 'models/Config';
 import fontOptions from 'data/web_fonts.js';
 
+import AnchorButton from 'components/vue/AnchorButton.vue';
+
+
 export default {
   components: {
+    AnchorButton,
     BasicSelect
   },
 

@@ -1,16 +1,19 @@
 <template lang="html">
   <div class="left-rail auto-heighter">
-    <a href="#" class="new-note btn" v-on:click="addNewNote">New Note</a>
+    <anchor-button :onClick="addNewNote">New Note</anchor-button>
+
     <note-list></note-list>
   </div>
 </template>
 
 <script>
 import Note from 'models/Note';
+import AnchorButton from 'components/vue/AnchorButton.vue';
 import NoteList from 'components/vue/NoteList.vue';
 
 export default {
   components: {
+    AnchorButton,
     NoteList
   },
 
@@ -29,7 +32,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="css">
 .left-rail {
   background-color: #fbfbfb;
   text-align: left;
@@ -39,33 +42,4 @@ export default {
   border: 1px solid #efefef;
 }
 
-.left-rail a.btn, .left-rail a.btn:visited, .left-rail a.btn:link {
-  text-align: center;
-  border-radius: .3em;
-  border-style: solid;
-  border-width: 1px;
-  color: #111;
-  font-family: avenir,helvetica,arial,sans-serif;
-  letter-spacing: .15em;
-  margin: .5em auto;
-  padding: .5em .75em;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: color .4s,background-color .4s,border .4s;
-  font-size: .8rem;
-  display: block;
-  max-width: 200px;
-}
-
-.left-rail a.btn:active {
-  color: #0074D9;
-  border: 1px solid #6e94b5;
-  transition: background-color .3s,color .3s,border .3s;
-}
-
-.left-rail a.btn:hover, .left-rail a.btn:focus {
-  color: #357e9b;
-  border: 1px solid #3c788f;
-  transition: background-color .3s,color .3s,border .3s;
-}
 </style>
